@@ -1,5 +1,7 @@
 com\mycompany\karyarasa\MainApp.class
+model\Dilaksanakan.class
 view\KaryarasaView.class
+model\Disalurkan.class
 model\ProgramSosial.class
 model\ProgramDonasi.class
 model\ProgramEdukasi.class

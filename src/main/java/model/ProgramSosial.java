@@ -1,7 +1,6 @@
 package model;
 
-
-public class ProgramSosial {
+public abstract class ProgramSosial {
     protected final String idProgram;
     protected String namaProgram;
     protected String tujuan;
@@ -21,7 +20,9 @@ public class ProgramSosial {
         setPengaju(pengaju);
     }
 
-    // ---------- Getter (Encapsulation) ----------
+    // =============================================
+    //            Getter (Encapsulation) 
+    // =============================================
     public String getIdProgram() { return idProgram; }
     public String getNamaProgram() { return namaProgram; }
     public String getTujuan() { return tujuan; }
@@ -30,7 +31,9 @@ public class ProgramSosial {
     public double getAnggaran() { return anggaran; }
     public Relawan getPengaju() { return pengaju; }
 
-    // ---------- Setter dengan validasi input ----------
+    // =============================================
+    //       Setter dengan validasi input 
+    // =============================================
     public void setNamaProgram(String namaProgram) {
         if (namaProgram != null && !namaProgram.trim().isEmpty()) {
             this.namaProgram = namaProgram;
@@ -70,10 +73,7 @@ public class ProgramSosial {
         this.pengaju = pengaju;
     }
 
-    /**
-     * POLYMORPHISM 
-     */
-    public void tampilkanInfo() {
+    protected void cetakDataDasar() {
         System.out.println("ID Program   : " + idProgram);
         System.out.println("Nama Program : " + namaProgram);
         System.out.println("Tujuan       : " + tujuan);
@@ -84,9 +84,9 @@ public class ProgramSosial {
         System.out.println("               Kontak: " + pengaju.getKontak());
     }
 
-    /**
-     * POLYMORPHISM 
-     */
+    
+    public abstract void tampilkanInfo();
+
     public void tampilkanInfo(boolean ringkas) {
         if (ringkas) {
             System.out.println("[" + idProgram + "] " + namaProgram + " - " + skala);

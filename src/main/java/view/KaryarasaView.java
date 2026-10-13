@@ -7,13 +7,16 @@ import java.util.ArrayList;
 public class KaryarasaView {
 
     public void tampilkanMenu() {
-        System.out.println("\n=== SISTEM MANAJEMEN SOCIAL PROJECT 'KARYARASA' ===");
-        System.out.println("1. Tambah Program Sosial & Pengaju");
-        System.out.println("2. Tampilkan Daftar Program Sosial");
-        System.out.println("3. Hapus Program Sosial");
-        System.out.println("4. Update Anggaran Program");
-        System.out.println("5. Keluar");
-        System.out.print("Pilih menu (1-5): ");
+        System.out.println("===================================================");
+        System.out.println("|    SISTEM MANAJEMEN SOCIAL PROJECT 'KARYARASA'  |");
+        System.out.println("===================================================");
+        System.out.println("| 1. Tambah Program Sosial & Pengaju              |");
+        System.out.println("| 2. Tampilkan Daftar Program Sosial              |");
+        System.out.println("| 3. Hapus Program Sosial                         |");
+        System.out.println("| 4. Update Anggaran Program                      |");
+        System.out.println("| 5. Keluar                                       |");
+        System.out.println("===================================================");
+        System.out.print("Pilih menu (1-5) : ");
     }
 
     public void tampilkanPesan(String pesan) {
@@ -31,10 +34,7 @@ public class KaryarasaView {
         System.out.println("==================================================================");
         for (int i = 0; i < daftarProgram.size(); i++) {
             System.out.print("[" + (i + 1) + "] ");
-            // POLYMORPHISM (dynamic method dispatch):
-            // Walaupun tipe reference-nya ProgramSosial, Java otomatis
-            // menjalankan versi tampilkanInfo() sesuai objek ASLI-nya
-            // (ProgramDonasi atau ProgramEdukasi) saat program berjalan.
+            
             daftarProgram.get(i).tampilkanInfo();
         }
     }

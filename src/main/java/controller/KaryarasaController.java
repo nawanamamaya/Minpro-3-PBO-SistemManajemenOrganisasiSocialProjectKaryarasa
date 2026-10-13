@@ -43,7 +43,9 @@ public class KaryarasaController {
     }
 
     public void tambahProgram() {
-        view.tampilkanPesan("\n--- 1. INFORMASI PENGAJU / RELAWAN ---");
+        view.tampilkanPesan("\n========================================");
+        view.tampilkanPesan("       1. INFORMASI PENGAJU / RELAWAN   ");
+        view.tampilkanPesan("========================================");
         System.out.print("Nama Pengaju       : ");
         String nama = scanner.nextLine();
         System.out.print("Kontak (No HP/WA)  : ");
@@ -54,7 +56,9 @@ public class KaryarasaController {
         String jabatan = scanner.nextLine();
         Relawan pengajuBaru = new Relawan(nama, kontak, asalLembaga, jabatan);
 
-        view.tampilkanPesan("\n--- 2. DETAIL PROGRAM SOSIAL ---");
+        view.tampilkanPesan("\n========================================");
+        view.tampilkanPesan("       2. DETAIL PROGRAM SOSIAL         ");
+        view.tampilkanPesan("========================================");
         String idProgram = mintaIdUnik();
         System.out.print("Nama Program       : ");
         String namaProgram = scanner.nextLine();
@@ -65,9 +69,12 @@ public class KaryarasaController {
         String skala = scanner.nextLine();
         double anggaran = mintaAngkaDouble("Anggaran (Rp)      : ");
 
-        System.out.println("\nPilih Jenis Program:");
-        System.out.println("1. Program Donasi");
-        System.out.println("2. Program Edukasi");
+        view.tampilkanPesan("\n+--------------------------------------+");
+        view.tampilkanPesan("|         PILIH JENIS PROGRAM          |");
+        view.tampilkanPesan("+--------------------------------------+");
+        view.tampilkanPesan("| 1. Program Donasi                    |");
+        view.tampilkanPesan("| 2. Program Edukasi                   |");
+        view.tampilkanPesan("+--------------------------------------+");
         int tipe = mintaAngkaIntRentang("Pilihan (1/2)      : ", 1, 2);
 
         ProgramSosial programBaru;
@@ -86,7 +93,7 @@ public class KaryarasaController {
         }
 
         daftarProgram.add(programBaru);
-        view.tampilkanPesan("\n>> Program sosial beserta data pengaju berhasil ditambahkan!");
+        view.tampilkanPesan("\nProgram sosial beserta data pengaju berhasil ditambahkan!");
     }
 
     public void tampilkanProgram() {
@@ -108,9 +115,9 @@ public class KaryarasaController {
 
         if (programHapus != null) {
             daftarProgram.remove(programHapus);
-            view.tampilkanPesan(">> Program sosial berhasil dihapus!");
+            view.tampilkanPesan("Program sosial berhasil dihapus!");
         } else {
-            view.tampilkanPesan(">> Program dengan ID tersebut tidak ditemukan.");
+            view.tampilkanPesan("Program dengan ID tersebut tidak ditemukan.");
         }
     }
 
@@ -130,13 +137,14 @@ public class KaryarasaController {
         if (programDitemukan != null) {
             double anggaranBaru = mintaAngkaDouble("Anggaran Baru (Rp): ");
             programDitemukan.setAnggaran(anggaranBaru); 
-            view.tampilkanPesan(">> Anggaran program berhasil diperbarui!");
+            view.tampilkanPesan("Anggaran program berhasil diperbarui!");
         } else {
-            view.tampilkanPesan(">> Program dengan ID tersebut tidak ditemukan.");
+            view.tampilkanPesan("Program dengan ID tersebut tidak ditemukan.");
         }
     }
-
-    // ==================== Helper Validasi Input ====================
+    // ===============================================================
+    //                       Helper Validasi Input 
+    // ===============================================================
 
     private String mintaIdUnik() {
         String id;
@@ -144,7 +152,7 @@ public class KaryarasaController {
             System.out.print("ID Program         : ");
             id = scanner.nextLine();
             if (id == null || id.trim().isEmpty()) {
-                System.out.println(">> ERROR: ID Program tidak boleh kosong!");
+                System.out.println("ID Program tidak boleh kosong!");
                 continue;
             }
             boolean duplikat = false;
@@ -155,7 +163,7 @@ public class KaryarasaController {
                 }
             }
             if (duplikat) {
-                System.out.println(">> ERROR: ID Program sudah digunakan, gunakan ID lain!");
+                System.out.println("ID Program sudah digunakan, gunakan ID lain!");
                 continue;
             }
             break;
@@ -170,7 +178,7 @@ public class KaryarasaController {
             try {
                 return Integer.parseInt(input.trim());
             } catch (NumberFormatException e) {
-                System.out.println(">> ERROR: Masukkan harus berupa angka bulat!");
+                System.out.println("Masukkan harus berupa angka bulat!");
             }
         }
     }
@@ -181,18 +189,18 @@ public class KaryarasaController {
             if (nilai >= min && nilai <= max) {
                 return nilai;
             }
-            System.out.println(">> ERROR: Pilihan harus antara " + min + " dan " + max + "!");
+            System.out.println("Pilihan harus antara " + min + " dan " + max + "!");
         }
     }
 
     private double mintaAngkaDouble(String label) {
         while (true) {
             System.out.print(label);
-            String input = scanner.nextLine();
+            String input = scanner.nextLine();      
             try {
                 return Double.parseDouble(input.trim());
             } catch (NumberFormatException e) {
-                System.out.println(">> ERROR: Masukkan harus berupa angka!");
+                System.out.println("Masukkan harus berupa angka!");
             }
         }
     }

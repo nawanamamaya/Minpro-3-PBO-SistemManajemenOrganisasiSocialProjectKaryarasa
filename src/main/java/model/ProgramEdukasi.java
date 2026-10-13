@@ -1,7 +1,7 @@
 package model;
 
 
-public class ProgramEdukasi extends ProgramSosial {
+public class ProgramEdukasi extends ProgramSosial implements Dilaksanakan {
     private int jumlahSesi;
     private String materiUtama;
 
@@ -20,7 +20,7 @@ public class ProgramEdukasi extends ProgramSosial {
         if (jumlahSesi > 0) {
             this.jumlahSesi = jumlahSesi;
         } else {
-            System.out.println(">> ERROR: Jumlah sesi harus lebih dari 0! Diatur ke 1.");
+            System.out.println("Jumlah sesi harus lebih dari 0! Diatur ke 1.");
             this.jumlahSesi = 1;
         }
     }
@@ -30,14 +30,21 @@ public class ProgramEdukasi extends ProgramSosial {
                 ? materiUtama : "-";
     }
 
-    // POLYMORPHISM - METHOD OVERRIDING
+    
     @Override
     public void tampilkanInfo() {
         System.out.println("----------------------------------------------------------------");
         System.out.println("[KATEGORI: PROGRAM EDUKASI]");
-        super.tampilkanInfo();
-        System.out.println("Jumlah Sesi  : " + jumlahSesi + " sesi");
-        System.out.println("Materi Utama : " + materiUtama);
+        cetakDataDasar(); 
+        System.out.println("Jumlah Sesi   : " + jumlahSesi + " sesi");
+        System.out.println("Materi Utama  : " + materiUtama);
         System.out.println("----------------------------------------------------------------");
+    }
+
+
+    @Override
+    public void laksanakan() {
+        System.out.println("SUKSES : Program edukasi '" + namaProgram + "' (" + jumlahSesi
+                + " sesi, materi: " + materiUtama + ") berhasil dilaksanakan.");
     }
 }

@@ -14,18 +14,22 @@ public class Relawan {
         setJabatan(jabatan);
     }
 
-    // ---------- Getter ----------
+    // =============================================
+    //                   Getter  
+    // =============================================
     public String getNama() { return nama; }
     public String getKontak() { return kontak; }
     public String getAsalLembaga() { return asalLembaga; }
     public String getJabatan() { return jabatan; }
 
-    // ---------- Setter (dengan validasi input) ----------
+    // =============================================
+    //       Setter dengan validasi input 
+    // =============================================
     public void setNama(String nama) {
         if (nama != null && !nama.trim().isEmpty()) {
             this.nama = nama;
         } else {
-            System.out.println(">> ERROR: Nama pengaju tidak boleh kosong! Diatur ke default.");
+            System.out.println("Nama pengaju tidak boleh kosong! Diatur ke default.");
             this.nama = "Tanpa Nama";
         }
     }
@@ -34,7 +38,7 @@ public class Relawan {
         if (kontak != null && !kontak.trim().isEmpty()) {
             this.kontak = kontak;
         } else {
-            System.out.println(">> ERROR: Kontak tidak boleh kosong! Diatur ke default.");
+            System.out.println("Kontak tidak boleh kosong! Diatur ke default.");
             this.kontak = "-";
         }
     }
